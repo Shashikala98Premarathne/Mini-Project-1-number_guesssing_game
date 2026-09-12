@@ -65,7 +65,7 @@ if not st.session_state.game_over:
 
     # SUBMIT GUESS
     with col1:
-        submit_guess = st.button("Submit Guess")
+        submit_guess = st.button("Submit Guess 🎯")
 
     # QUIT GAME
     with col2:

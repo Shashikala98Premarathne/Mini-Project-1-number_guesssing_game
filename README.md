@@ -1,4 +1,4 @@
-# number_guesssing_game
+# Mini Project 1: number_guesssing_game
 
 Goal
 The computer secretly chooses a number from 1 to 100.

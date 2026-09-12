@@ -1,18 +1,14 @@
 import streamlit as st
 import random
 
-# -----------------------------
 # PAGE CONFIGURATION
-# -----------------------------
 st.set_page_config(
     page_title="Number Guessing Game 🎯",
     page_icon="🎯",
     layout="centered"
 )
 
-# -----------------------------
 # BACKGROUND COLOR
-# -----------------------------
 st.markdown(
     """
     <style>
@@ -27,9 +23,7 @@ st.markdown(
 st.title("🎯 Number Guessing Game")
 
 
-# -----------------------------
 # SESSION STATE
-# -----------------------------
 
 # Generate the secret number only once
 if "secret_number" not in st.session_state:
@@ -48,10 +42,7 @@ if "quit_game" not in st.session_state:
     st.session_state.quit_game = False
 
 
-# -----------------------------
 # USER NAME
-# -----------------------------
-
 name = st.text_input("Enter your name:")
 
 if name:
@@ -61,10 +52,8 @@ if name:
     )
 
 
-# -----------------------------
-# GAME
-# -----------------------------
 
+# GAME
 if not st.session_state.game_over:
 
     guess_input = st.text_input(
@@ -74,17 +63,11 @@ if not st.session_state.game_over:
 
     col1, col2 = st.columns(2)
 
-    # -----------------------------
     # SUBMIT GUESS
-    # -----------------------------
-
     with col1:
         submit_guess = st.button("Submit Guess 🎯")
 
-    # -----------------------------
     # QUIT GAME
-    # -----------------------------
-
     with col2:
         quit_button = st.button("Quit Game 👋")
 
@@ -113,10 +96,7 @@ if not st.session_state.game_over:
 
             attempts_left = 10 - st.session_state.attempts
 
-            # -----------------------------
             # CORRECT GUESS
-            # -----------------------------
-
             if guess == st.session_state.secret_number:
 
                 if st.session_state.attempts == 1:
@@ -136,10 +116,7 @@ if not st.session_state.game_over:
 
                 st.session_state.game_over = True
 
-            # -----------------------------
             # WRONG GUESS
-            # -----------------------------
-
             else:
 
                 difference = abs(
@@ -176,10 +153,7 @@ if not st.session_state.game_over:
                         f"{attempts_left} attempts left."
                     )
 
-                # -----------------------------
                 # OUT OF ATTEMPTS
-                # -----------------------------
-
                 if st.session_state.attempts >= 10:
                     st.error(
                         f"Sorry {name}, you've used all your attempts. ☹️ "
@@ -201,10 +175,7 @@ if not st.session_state.game_over:
                 )
 
 
-# -----------------------------
 # GAME FINISHED
-# -----------------------------
-
 else:
 
     if st.session_state.quit_game:
@@ -214,10 +185,8 @@ else:
         st.info("🎮 Game finished! Want to play again?")
 
 
-# -----------------------------
-# PLAY AGAIN
-# -----------------------------
 
+# PLAY AGAIN
 if st.session_state.game_over:
 
     if st.button("Play Again 🔄"):
